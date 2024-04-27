@@ -323,3 +323,7 @@ mark {
 .jcsb {
   justify-content: space-between;
 }
+
+.font {
+  font-family: TAHOMA, Tahoma, Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}

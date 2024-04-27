@@ -31,15 +31,14 @@ let state = {
                 {{ field.label }}
               </div>
             </template>
-
             <template #default="scope">
               <template v-if="scope.row[field.key].popover">
                 <ElPopover effect="light" trigger="hover" :placement="scope.row[field.key].placement" width="auto">
                   <template #default>
-                    <div :class="[Object.keys(scope.row[field.key].popover).length === 1 ? 'fr jcc' : 'fr',]"
+                    <div :class="[Object.keys(scope.row[field.key].popover).length === 1 ? 'fr jcc' : 'fr', 'font']"
                       v-for="(popoverValue, popoverKey) in scope.row[field.key].popover">
-                      <span v-if="popoverKey + '' === 'value'">{{ popoverValue }}</span>
-                      <span v-else>{{ popoverKey }} : {{ popoverValue }}</span>
+                      <div v-if="popoverKey + '' === 'value'">{{ popoverValue }}</div>
+                      <div v-else>{{ popoverKey }} : {{ popoverValue }}</div>
                     </div>
                   </template>
                   <template #reference>

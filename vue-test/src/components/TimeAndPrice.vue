@@ -67,7 +67,4 @@ let comput = {
   </div>
 </template>
 <style scoped>
-.font {
-  font-family: TAHOMA, Tahoma, Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-}
 </style>

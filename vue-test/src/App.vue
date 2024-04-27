@@ -290,8 +290,4 @@ function getPrice(item: { time: string, price: number }) {
   </div>
 </template>
 
-<style scoped>
-.font {
-  font-family: TAHOMA, Tahoma, Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-}
-</style>
+<style scoped></style>
