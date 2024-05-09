@@ -1,1 +1,0 @@
-{"time":"2024-05-09 19:31:17.223 +08","from":"Crontab","msg":"remote: fatal error in commit_refs        \nTo github.com:yukuan95/ts-test.git\n ! [remote rejected] main -> main (failure)\nerror: failed to push some refs to 'github.com:yukuan95/ts-test.git'"}
