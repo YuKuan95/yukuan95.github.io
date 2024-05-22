@@ -229,11 +229,16 @@ async function getData() {
   let res = await Promise.all([Lib.getData(), getFonts()])
   resData = res[0]
   state.time = resData.analyseTime
-  state.timeColor = resData.resErrorLogArray.length > 0 ? Color.red : Color.green
-  let timeMin = Lib.getNowMilliTime() - Lib.stringTimeToMilliTime(resData.analyseTime)
-  if (timeMin > 66 * 60 * 1000) {
+  state.timeColor = Color.green
+  if (resData.resErrorLogArray.length > 0) {
     state.timeColor = Color.red
   }
+  [resData.analyseTime, resData.resPriceLog.nowTime].forEach((time) => {
+    let timeMin = Lib.getNowMilliTime() - Lib.stringTimeToMilliTime(time)
+    if (timeMin > 66 * 60 * 1000) {
+      state.timeColor = Color.red
+    }
+  })
   state.resErrorLogArray = resData.resErrorLogArray
   state.resPriceLog = resData.resPriceLog
   state.priceArray = []
