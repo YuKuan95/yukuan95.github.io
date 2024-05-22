@@ -10,6 +10,7 @@ const props = defineProps([
   'paddingLeft',
   'paddingRight',
   'time',
+  'nowTime',
   'timeColor',
   'price',
   'priceColor',
@@ -37,9 +38,24 @@ let comput = {
     'padding-left': props.paddingLeft + 'px',
     'padding-right': props.paddingRight + 'px',
   }">
-    <div v-show="props.time" class="fr jcc aic">
-      <div :style="{ color: props.timeColor }">{{ props.time }}</div>
-    </div>
+    <template v-if="props.timeColor === Color.red">
+      <ElPopover effect="light" trigger="hover" width="auto">
+          <template #default>
+            {{ props.nowTime }}
+          </template>
+          <template #reference>
+            <div v-show="props.time" class="fr jcc aic">
+              <div :style="{ color: props.timeColor }">{{ props.time }}</div>
+            </div>
+          </template>
+        </ElPopover>
+    </template>
+    <template v-else>
+      <div v-show="props.time" class="fr jcc aic">
+        <div :style="{ color: props.timeColor }">{{ props.time }}</div>
+      </div>
+    </template>
+    
     <ElPopover effect="light" trigger="hover" width="auto">
       <template #default>
         <div class="fr jcsb font" style="column-gap: 2px;">

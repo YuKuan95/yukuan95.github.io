@@ -275,6 +275,7 @@ function getPrice(item: { time: string, price: number }) {
     <div v-else class="fc jcc aic">
       <div :style="{ 'width': width + 'px', 'height': '20px' }"></div>
       <TimeAndPrice :width="width" paddingLeft="5" paddingRight="5"
+        :nowTime="state.resPriceLog.nowTime ? `${state.resPriceLog.nowTime.slice(0, 16)} ${state.resPriceLog.nowTime.slice(-4)}` : ''"
         :time="state.time ? `${state.time.slice(0, 16)} ${state.time.slice(-4)}` : ''" :timeColor="state.timeColor"
         :price="state.priceArray.at(-1) ? state.priceArray.at(-1)?.price : ''" :priceColor="state.priceColor"
         :shortPrice="state.resPriceLog.shortPrice" :longPrice="state.resPriceLog.longPrice">
