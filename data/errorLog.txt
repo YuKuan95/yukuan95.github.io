@@ -1,0 +1,2 @@
+{"time":"2024-06-13 12:27:59.937 +08","from":"Websocket","msg":"websocket error"}
+{"time":"2024-06-13 12:27:59.944 +08","from":"Main","msg":"getPriceAvg error"}
