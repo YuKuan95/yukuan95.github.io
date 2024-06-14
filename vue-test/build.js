@@ -6,16 +6,15 @@ const main = async () => {
   let __filename = fileURLToPath(url);
   let src = join(__filename, '../dist');
   let dest = join(__filename, '../../');
-  let map = new Map();
-  let res = await fs.readdir(src);
-  res.filter((item) => item !== '.DS_Store').forEach((item) => {
-    map.set(join(src, item), join(dest, item));
-  });
-  for (let [k, v] of map.entries()) {
+  let res = (await fs.readdir(src)).filter((item) => item !== '.DS_Store');
+  for (let item of res) {
+    let k = join(src, item)
+    let v = join(dest, item)
     if (await fs.pathExists(v)) {
       await fs.remove(v);
     }
     await fs.copy(k, v);
   }
+  await fs.remove(src);
 };
 main();
