@@ -233,7 +233,7 @@ async function getData() {
   if (resData.resErrorLogArray.length > 0) {
     state.timeColor = Color.red
   }
-  [resData.analyseTime, resData.resPriceLog.nowTime].forEach((time) => {
+  Array.of(resData.analyseTime, resData.resPriceLog.nowTime).forEach((time) => {
     let timeMin = Lib.getNowMilliTime() - Lib.stringTimeToMilliTime(time)
     if (timeMin > 66 * 60 * 1000) {
       state.timeColor = Color.red
