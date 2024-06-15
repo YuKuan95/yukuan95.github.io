@@ -18,27 +18,18 @@ export enum Status {
 
 export function getPrice(callback: (item: { time: string, price: number }) => void) {
   let wsInit = () => {
-    // wss://wsaws.okx.com:8443/ws/v5/public
-    let ws = new WebSocket('wss://ws.okx.com:8443/ws/v5/public')
+    let ws = new WebSocket('wss://dstream.binance.com/ws/btcusd_perp')
     ws.onopen = () => {
-      ws.send(
-        JSON.stringify({
-          op: 'subscribe',
-          args: [{
-            channel: 'tickers',
-            instId: 'BTC-USDT',
-          }],
-        })
-      )
+      ws.send(JSON.stringify({
+        method: 'SUBSCRIBE', params: ['btcusd_perp@markPrice'], id: 1,
+      }))
     }
     ws.onmessage = (res) => {
-      let data = JSON.parse(res.data + '')
-      if (data.data && data.data.length > 0 && data.data[0].last) {
-        let price = Number.parseFloat(data.data[0].last + '')
-        let time = getNowStringTime()
-        if (!isNaN(price)) {
-          callback({ time, price })
-        }
+      let data = JSON.parse(String(res.data))
+      let time = getNowStringTime()
+      let price = Number.parseFloat(data.p)
+      if (!isNaN(price)) {
+        callback({ time, price })
       }
     }
   }
