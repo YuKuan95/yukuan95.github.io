@@ -70,6 +70,8 @@ watchEffect(() => {
   if (state.priceArray.length >= 2) {
     let price1 = state.priceArray.at(-1)!!.price
     let price2 = state.priceArray.at(-2)!!.price
+    price1 = Number.parseFloat(Lib.toFixedString(price1, 1))
+    price2 = Number.parseFloat(Lib.toFixedString(price2, 1))
     if (price1 > price2) {
       state.priceColor = Color.green
     }
