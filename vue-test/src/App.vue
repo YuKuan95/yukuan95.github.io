@@ -186,7 +186,7 @@ function setTable3() {
         placement: 'right',
         popover: { rate2: !item2 ? 1 : Lib.toFixedString(item2.totalS, 15) },
       },
-      rate: { value: Lib.toFixedString(item.totalS, 1) },
+      rate: { value: Lib.toFixedString(item.totalS, item.lastNMonth <= 48 ? 3 : 1) },
       avgMonth: { value: Lib.toFixedString(item.monthAvgS, 3) },
     })
   }
