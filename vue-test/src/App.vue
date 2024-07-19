@@ -15,6 +15,7 @@ let resData = {} as {
   dataMap1: Map<string, Array<{ time: string, price: number, priceAvg: number, priceAvgChg: number, state: Status, s: number }>>,
   dataMap2: Map<string, Array<{ time: string, price: number, priceAvg: number, priceAvgChg: number, state: Status, s: number }>>,
   dataMapMonthS1: Map<string, number>,
+  dataMapMonthAvgS1: Map<string, number>,
   dataMapMonthS2: Map<string, number>,
   dataMapYearSMonthAvgS1: Map<string, { yearTotalS: number, monthAvgS: number }>,
   dataMapYearSMonthAvgS2: Map<string, { yearTotalS: number, monthAvgS: number }>,
@@ -84,6 +85,7 @@ watchEffect(() => {
 function setTable1() {
   let data = resData.dataMapMonthS1.get(state.currentMonth)
   let data2 = resData.dataMapMonthS2.get(state.currentMonth)
+  let dataAvg = resData.dataMapMonthAvgS1.get(state.currentMonth)
   let fields1 = [
     { key: 'month', label: 'month', align: 'center' },
     { key: 'leverage', label: 'leverage', align: 'center' },
@@ -94,8 +96,11 @@ function setTable1() {
       month: { value: state.currentMonth },
       leverage: { value: leverage },
       rate: {
-        value: Lib.toFixedString(data ? data : 1, 3),
-        popover: { rate2: Lib.toFixedString(data2 ? data2 : 1, 3) },
+        value: Lib.toFixedString(data ? data : 1, 4),
+        popover: { 
+          rate2: Lib.toFixedString(data2 ? data2 : 1, 4), 
+          rateAvg: Lib.toFixedString(dataAvg ? dataAvg : 1, 4), 
+        },
         placement: 'left',
       },
     },

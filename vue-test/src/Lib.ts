@@ -55,7 +55,8 @@ export async function getData() {
   let { analyseTime, startTime, dataMap1,
     dataMap2, dataMapMonthS1, dataMapMonthS2,
     dataMapYearSMonthAvgS1, dataMapYearSMonthAvgS2,
-    lastNMonthSPerSixMonth1, lastNMonthSPerSixMonth2
+    lastNMonthSPerSixMonth1, lastNMonthSPerSixMonth2,
+    dataMapMonthAvgS1,
   } = resAnalyseData
   let resErrorLogArray: Array<{ time: string, from: string, msg: string }> = []
   resErrorLog.trim().split('\n').forEach((item) => {
@@ -69,6 +70,7 @@ export async function getData() {
     dataMap1: new Map(Object.entries(dataMap1)),
     dataMap2: new Map(Object.entries(dataMap2)),
     dataMapMonthS1: new Map(Object.entries(dataMapMonthS1)),
+    dataMapMonthAvgS1: new Map(Object.entries(dataMapMonthAvgS1)),
     dataMapMonthS2: new Map(Object.entries(dataMapMonthS2)),
     dataMapYearSMonthAvgS1: new Map(Object.entries(dataMapYearSMonthAvgS1)),
     dataMapYearSMonthAvgS2: new Map(Object.entries(dataMapYearSMonthAvgS2)),
@@ -82,6 +84,7 @@ export async function getData() {
     dataMap1: Map<string, Array<{ time: string, price: number, priceAvg: number, priceAvgChg: number, state: Status, s: number }>>,
     dataMap2: Map<string, Array<{ time: string, price: number, priceAvg: number, priceAvgChg: number, state: Status, s: number }>>,
     dataMapMonthS1: Map<string, number>,
+    dataMapMonthAvgS1: Map<string, number>,
     dataMapMonthS2: Map<string, number>,
     dataMapYearSMonthAvgS1: Map<string, { yearTotalS: number, monthAvgS: number }>,
     dataMapYearSMonthAvgS2: Map<string, { yearTotalS: number, monthAvgS: number }>,
