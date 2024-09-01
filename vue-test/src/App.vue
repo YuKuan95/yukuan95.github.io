@@ -32,6 +32,7 @@ let state = reactive({
   priceArray: [] as Array<{ time: string, price: number }>,
   priceColor: Color.black,
   time: '',
+  startTime:'',
   timeColor: Color.black,
   resErrorLogArray: [] as Array<{ time: string, from: string, msg: string }>,
 } as {
@@ -41,6 +42,7 @@ let state = reactive({
   priceArray: Array<{ time: string, price: number }>
   priceColor: Color
   time: string
+  startTime: string
   timeColor: Color
   resErrorLogArray: Array<{ time: string, from: string, msg: string }>
   resPriceLog: { nowPrice: number, shortPrice: number, longPrice: number, nowTime: string },
@@ -236,6 +238,7 @@ async function getData() {
   let res = await Promise.all([Lib.getData(), getFonts()])
   resData = res[0]
   state.time = resData.analyseTime
+  state.startTime = resData.startTime
   state.timeColor = Color.green
   if (resData.resErrorLogArray.length > 0) {
     state.timeColor = Color.red
@@ -282,6 +285,7 @@ function getPrice(item: { time: string, price: number }) {
     <div v-else class="fc jcc aic">
       <div :style="{ 'width': width + 'px', 'height': '20px' }"></div>
       <TimeAndPrice :width="width" paddingLeft="5" paddingRight="5"
+        :startTime="state.startTime ? `${state.startTime.slice(0, 16)} ${state.startTime.slice(-4)}` : ''"
         :nowTime="state.resPriceLog.nowTime ? `${state.resPriceLog.nowTime.slice(0, 16)} ${state.resPriceLog.nowTime.slice(-4)}` : ''"
         :time="state.time ? `${state.time.slice(0, 16)} ${state.time.slice(-4)}` : ''" :timeColor="state.timeColor"
         :price="state.priceArray.at(-1) ? state.priceArray.at(-1)?.price : ''" :priceColor="state.priceColor"
