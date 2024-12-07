@@ -1,1 +1,4 @@
 
+time: 2024-12-08 02:16:40.108 +08, from: Main
+getPriceAvg error
+=====
