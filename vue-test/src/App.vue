@@ -114,8 +114,8 @@ function setTable1() {
 function setTable2() {
   let fields2 = [
     { key: 'time', label: `time(${resData.analyseTime.slice(24, 27)})`, width: 140 },
-    { key: 'price', label: 'price', align: 'center', width: 80 },
-    { key: 'status', label: 'status', align: 'center', width: 70 },
+    { key: 'price', label: 'price', align: 'center', width: 82 },
+    { key: 'status', label: 'status', align: 'center', width: 68 },
     {
       key: 'rate', label: 'rate', align: 'center', width: 65, dblclick: () => {
         state.isShowAll = !state.isShowAll
