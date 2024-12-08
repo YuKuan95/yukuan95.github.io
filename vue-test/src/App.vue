@@ -21,7 +21,7 @@ let resData = {} as {
   dataMapYearSMonthAvgS2: Map<string, { yearTotalS: number, monthAvgS: number }>,
   lastNMonthSPerSixMonth1: Array<{ lastNMonth: number, totalS: number, monthAvgS: number }>,
   lastNMonthSPerSixMonth2: Array<{ lastNMonth: number, totalS: number, monthAvgS: number }>,
-  resErrorLogArray: Array<{ time: string, from: string, msg: string }>,
+  resErrorLogArray: Array<string>,
   resPriceLog: { nowPrice: number, shortPrice: number, longPrice: number, nowTime: string },
 }
 
@@ -34,7 +34,7 @@ let state = reactive({
   time: '',
   startTime:'',
   timeColor: Color.black,
-  resErrorLogArray: [] as Array<{ time: string, from: string, msg: string }>,
+  resErrorLogArray: [] as Array<string>,
 } as {
   isLoading: boolean
   isShowAll: boolean
@@ -44,7 +44,7 @@ let state = reactive({
   time: string
   startTime: string
   timeColor: Color
-  resErrorLogArray: Array<{ time: string, from: string, msg: string }>
+  resErrorLogArray: Array<string>
   resPriceLog: { nowPrice: number, shortPrice: number, longPrice: number, nowTime: string },
   table1: any
   table2: any

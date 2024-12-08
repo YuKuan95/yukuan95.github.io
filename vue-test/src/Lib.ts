@@ -58,10 +58,10 @@ export async function getData() {
     lastNMonthSPerSixMonth1, lastNMonthSPerSixMonth2,
     dataMapMonthAvgS1,
   } = resAnalyseData
-  let resErrorLogArray: Array<{ time: string, from: string, msg: string }> = []
-  resErrorLog.trim().split('\n').forEach((item) => {
-    if (item.trim().length > 0) {
-      resErrorLogArray.push(JSON.parse(item.trim()))
+  let resErrorLogArray: Array<string> = []
+  resErrorLog.trim().split('=====').forEach((item) => {
+    if (item.trim()) {
+      resErrorLogArray.push(item.trim())
     }
   })
   let res = {
@@ -90,7 +90,7 @@ export async function getData() {
     dataMapYearSMonthAvgS2: Map<string, { yearTotalS: number, monthAvgS: number }>,
     lastNMonthSPerSixMonth1: Array<{ lastNMonth: number, totalS: number, monthAvgS: number }>,
     lastNMonthSPerSixMonth2: Array<{ lastNMonth: number, totalS: number, monthAvgS: number }>,
-    resErrorLogArray: Array<{ time: string, from: string, msg: string }>,
+    resErrorLogArray: Array<string>,
     resPriceLog: { nowPrice: number, shortPrice: number, longPrice: number, nowTime: string, }
   }
   return res
