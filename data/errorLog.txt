@@ -1,0 +1,13 @@
+time: 2024-12-24 22:48:00.087 +08, from: Order
+Error: getNowQuantity error
+  at getNowQuantity (file:///root/work/ts-test/javascript/Lib2.js:129:15)
+  at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+  at async Module.closePosition (file:///root/work/ts-test/javascript/Lib2.js:222:34)
+  at async order (file:///root/work/ts-test/javascript/Main.js:170:9)
+  at async file:///root/work/ts-test/javascript/Main.js:122:17
+  at async Stream.forEach (file:///root/work/ts-test/javascript/Lib.js:212:17)
+  at async file:///root/work/ts-test/javascript/Main.js:120:9
+  at async Module.runImmediate (file:///root/work/ts-test/javascript/Lib.js:221:20)
+  at async Promise.all (index 1)
+  at async file:///root/work/ts-test/javascript/Main.js:150:5
+=====
