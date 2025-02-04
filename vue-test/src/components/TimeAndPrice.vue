@@ -41,12 +41,7 @@ let comput = {
   }">
     <ElPopover effect="light" trigger="hover" width="auto">
       <template #default>
-        <template v-if="props.timeColor === Color.red">
-          {{ props.nowTime }}
-        </template>
-        <template v-else>
-          {{ props.startTime }}
-        </template>
+        {{ props.startTime }}
       </template>
       <template #reference>
         <div v-show="props.time" class="fr jcc aic">
