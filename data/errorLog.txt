@@ -1,6 +1,0 @@
-time: 2025-02-04 03:16:00.061 +08, from: Main
-WarnVolatility-LONG: 4.339%
-=====
-time: 2025-02-04 03:16:01.134 +08, from: OrderUCopy
-{"code":-2019,"msg":"Margin is insufficient."}
-=====
